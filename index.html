@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="Hi, I'm Parker. I compose music for film and video games. I love the process of working with a director to 'twist the knobs' on a piece of music. More hopeful! More dark! Different flavor of sad...">
+        <meta name="description" content="Parker Phinney is an award-winning EU/USA dual-citizen composer for film, TV, and video games. Emerging Composer Of The Year 2024 (Apulia Soundtrack Awards).">
         <meta name="author" content="Parker Phinney Studios, LLC.">
-        <title>Parker Phinney Studios</title>
+        <title>Parker Phinney Music</title>
         <!-- Font Awesome icons (free version)-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <!-- Core theme CSS (includes Bootstrap)-->
@@ -13,146 +13,511 @@
         <!-- Fonts CSS-->
         <link rel="stylesheet" href="css/heading.css">
         <link rel="stylesheet" href="css/body.css">
-		<style type="text/css">
-			body{background-color: #1f1f21;}
-			.page-section.bg-white{background-color: white;}
-			.masthead-avatar{border-radius: 150px;}
-			.page-section-heading{padding-bottom: 25px; margin-bottom: 25px;}
+        <style type="text/css">
+            body { background-color: #1f1f21; }
+            .page-section.bg-white { background-color: white; }
+            .masthead-avatar { border-radius: 150px; }
+            .page-section-heading { padding-bottom: 20px; margin-bottom: 20px; }
+            .bg-primary a { color: #a8a6a1; }
+            .bg-white a { color: #6f6fa3; }
+            .container.contact a { color: #dedede; }
+            p.email-addr { line-height: 1.2; font-size: 1.75rem; overflow-wrap: break-word; }
+            @media (max-width: 500px) {
+                p.email-addr { font-size: 1rem; }
+            }
+            @media only screen and (min-width: 768px) {
+                .mobile-only { display: none; }
+            }
 
-			.portfolio-item {margin-bottom: 20px;}
-			.bg-primary a{color: #a8a6a1}
-			.bg-white a{color: #6f6fa3}
-			.container.bio div p{font-size: 1.2rem;}
-			p.email-addr{line-height: 1.2; font-size: 1.75rem; overflow-wrap: break-word}
-			@media (max-width: 500px){
-				p.email-addr{font-size: 1rem}
-			}
-			.container.contact a{color: #dedede;}
+            /* Poster carousel */
+            .poster-track {
+                display: flex;
+                height: 35vh;
+                overflow-x: scroll;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                scrollbar-width: none;
+                gap: 3px;
+            }
+            .poster-track::-webkit-scrollbar { display: none; }
+            .poster-item {
+                flex-shrink: 0;
+                height: 100%;
+                margin: 0;
+                position: relative;
+                scroll-snap-align: start;
+                overflow: hidden;
+            }
+            .poster-item img {
+                height: 100%;
+                width: auto;
+                display: block;
+            }
+            .poster-item figcaption {
+                position: absolute;
+                bottom: 0; left: 0; right: 0;
+                padding: 2.5rem 0.75rem 0.65rem;
+                background: linear-gradient(transparent, rgba(0,0,0,0.72));
+                color: white;
+                font-size: 0.72rem;
+                text-transform: uppercase;
+                letter-spacing: 0.08em;
+                opacity: 0;
+                transition: opacity 0.2s;
+            }
+            .poster-item:hover figcaption { opacity: 1; }
+            .carousel-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0,0,0,0.4);
+                color: white;
+                border: none;
+                width: 52px; height: 64px;
+                font-size: 2.8rem;
+                line-height: 1;
+                cursor: pointer;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: background 0.15s;
+                padding: 0;
+            }
+            .carousel-btn:hover { background: rgba(0,0,0,0.72); }
+            .carousel-btn--prev { left: 0; border-radius: 0 3px 3px 0; }
+            .carousel-btn--next { right: 0; border-radius: 3px 0 0 3px; }
 
-			@media only screen and (min-width: 768px) {
-			  .mobile-only {
-				display: none;
-			  }
-			}
+            /* Testimonials 2-col */
+            .testimonials-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0 3rem;
+            }
+            @media (max-width: 767px) {
+                .testimonials-grid { grid-template-columns: 1fr; }
+            }
+            .testimonial-item {
+                padding: 1.25rem 0;
+                border-bottom: 1px solid #e9e5e0;
+            }
+            .testimonial-item blockquote {
+                font-size: 0.95rem;
+                line-height: 1.7;
+                margin: 0 0 0.5rem;
+                color: #333;
+            }
+            .testimonial-item cite {
+                font-size: 0.75rem;
+                color: #888;
+                font-style: normal;
+                text-transform: uppercase;
+                letter-spacing: 0.06em;
+            }
 
-		</style>
+            /* Testimonial headshots */
+            .testimonial-byline {
+                display: flex;
+                align-items: center;
+                gap: 0.6rem;
+                margin-top: 0.6rem;
+            }
+            .testimonial-avatar {
+                width: 46px;
+                height: 46px;
+                border-radius: 50%;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+            /* Awards grid */
+            .awards-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
+            }
+            @media (max-width: 767px) {
+                .awards-grid { grid-template-columns: repeat(2, 1fr); }
+            }
+            .award-card {
+                text-align: center;
+                padding: 1.25rem 1rem;
+            }
+            .award-logo-box {
+                background: white;
+                border-radius: 8px;
+                padding: 10px 14px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 0.75rem;
+                min-height: 72px;
+                min-width: 72px;
+            }
+            .award-logo-box img {
+                max-height: 56px;
+                max-width: 130px;
+                width: auto;
+                display: block;
+            }
+            .award-title {
+                font-weight: 600;
+                color: #fff;
+                font-size: 0.9rem;
+                line-height: 1.3;
+            }
+            .award-detail {
+                font-size: 0.78rem;
+                color: #9e9e9e;
+                margin-top: 3px;
+                line-height: 1.4;
+            }
+
+            /* Bio photo + text */
+            .bio-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: start;
+            }
+            @media (max-width: 767px) {
+                .bio-grid { grid-template-columns: 1fr; }
+            }
+            .bio-grid img {
+                width: 100%;
+                border-radius: 4px;
+                display: block;
+            }
+            .bio-grid p { font-size: 1rem; line-height: 1.75; }
+
+            /* Work-with-me photo + text */
+            .work-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 3rem;
+                align-items: start;
+            }
+            @media (max-width: 767px) {
+                .work-grid { grid-template-columns: 1fr; }
+            }
+            .work-grid img {
+                width: 100%;
+                border-radius: 4px;
+                display: block;
+            }
+            .work-caption {
+                font-size: 0.8rem;
+                color: #9e9e9e;
+                margin-top: 0.5rem;
+                font-style: italic;
+                text-align: center;
+            }
+        </style>
     </head>
     <body id="page-top">
+
+        <!-- Masthead -->
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Image-->
-				<img class="masthead-avatar mb-5" src="whatilooklike.jpg" alt="">
-                <!-- Masthead Heading-->
-                <h1 class="masthead-heading">Parker Phinney Studios</h1>
-                <!-- Masthead Subheading-->
-				<br>
-				<h5>
-				Film, TV,  and Video Game Composer
-				</h5>
-
-				<h6>
-				USA + EU (dual citizen)
-				</h6>
-				<br>
+                <img class="masthead-avatar mb-5" src="whatilooklike.jpg" alt="">
+                <h1 class="masthead-heading">Parker Phinney</h1>
+                <br>
+                <h5>Film, TV, and Video Game Composer</h5>
+                <h6>EU + USA dual citizen</h6>
+                <br>
             </div>
         </header>
+
+        <!-- Film Credits -->
+        <section style="background:white; padding-top: 4rem; padding-bottom: 2rem;">
+            <h2 class="page-section-heading text-secondary text-center mb-4" style="display:block;">Film Credits</h2>
+            <div style="position:relative;">
+                <div class="poster-track" id="posterTrack">
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-mintrix.jpg" alt="Mintrix">
+                        <figcaption>Mintrix</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-burden.jpg" alt="Burden">
+                        <figcaption>Burden</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-man-baby.jpg" alt="Man Baby">
+                        <figcaption>Man Baby</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-stephens-tale.jpg" alt="Stephen's Tale">
+                        <figcaption>Stephen's Tale</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-the-tryout.jpg" alt="The Tryout">
+                        <figcaption>The Tryout</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-tunnel-vision.jpg" alt="Tunnel Vision">
+                        <figcaption>Tunnel Vision</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-the-time-we-have.jpg" alt="The Time We Have">
+                        <figcaption>The Time We Have</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-woodland-tales.jpg" alt="Woodland Tales">
+                        <figcaption>Woodland Tales</figcaption>
+                    </figure>
+                    <figure class="poster-item">
+                        <img src="img/posters/poster-rave-sin-love.jpg" alt="Rave Sin Love">
+                        <figcaption>Rave Sin Love</figcaption>
+                    </figure>
+                </div>
+                <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous">&#8249;</button>
+                <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next">&#8250;</button>
+            </div>
+            <p class="text-center mt-3" style="font-size:0.85rem;">
+                <a href="https://www.imdb.com/name/nm15215598/" target="_blank" style="color:#6f6fa3;">More on IMDB &rarr;</a>
+            </p>
+        </section>
+
+        <!-- What it's like to work with me -->
         <section class="page-section bg-primary text-white mb-0">
-            <div class="container bio" style="max-width: 700px;">
-                <div>
-					<!--
-                    <h2 class="text-center page-section-heading text-secondary d-inline-block">
-						Bio
-					</h2>
-					-->
-
-					<p>
-					<strong>
-					Hi, I'm Parker.
-					</strong>
-					</p>
-
-					<p>
-					I love the process of working with a director to “twist the knobs” on a piece of music.
-					</p>
-
-					<p>
-					More hopeful! More dark! Different flavor of sad—more melancholy, less devastating. Epic but in a <em>playful</em> way, not a serious way.
-					</p>
-
-					<p>
-					Please feel free to get in touch while your project is in the early stages. Let’s bat around some ideas and see if I'm a good fit. I’d love to give you a cue or two that you can show the rest of your team and say, “it’s going to feel like this!”
-					</p>
-
+            <div class="container">
+                <h2 class="page-section-heading text-white text-center" style="display:block;">What it's like to work with me</h2>
+                <div class="work-grid">
+                    <div>
+                        <img src="img/piano.jpg" alt="Parker at the piano">
+                        <p class="work-caption">Conducting an 84-piece orchestra playing my music in Sofia, Bulgaria!</p>
+                    </div>
+                    <div>
+                        <p><strong>I love the process of working with a director to "twist the knobs" on a piece of music.</strong></p>
+                        <p>More hopeful! More dark! Different flavor of sad—more <em>melancholy</em>, less <em>devastating</em>. Epic but in a <em>playful</em> way, not a serious way.</p>
+                        <p>In a lot of ways, I see myself as a filmmaker and storyteller who happens to use music as a medium. For me, media music has two jobs: 1) elevate the artistry of the piece and 2) <em>fix things that aren't working yet</em>—pacing, stakes, and most commonly, <em>clarity</em>.</p>
+                        <p>I love this mix of creativity and problem-solving—it's why I'm a film/media music composer and not a concert composer or rock musician. This means I actually <em>love getting notes</em>—solving problems is half the fun.</p>
+                        <p>Please feel free to get in touch while your project is in the early stages. Let's bat around some ideas, share some reference tracks, and see if I'm a good fit. Starting early gives us the chance to come up with a piece or two that you can show the rest of your art team and say, "it's going to feel like this!"</p>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- Testimonials -->
+        <section class="page-section bg-white">
+            <div class="container">
+                <h2 class="page-section-heading text-secondary text-center" style="display:block;">Testimonials</h2>
+                <div class="testimonials-grid">
+                    <div>
+                        <div class="testimonial-item">
+                            <blockquote>When you're making a fantasy film where your protagonist draws magic from the music of the universe, you know music is going to be key. Parker's compositions were spot on, beautifully filling out the world and subtly underscoring the inner life of the characters to enhance the storytelling and epic feel of our adventure. His instincts, attention to detail and collaborative spirit are just a few of the reasons I love working with him.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/kimberly-woods.jpg" alt="Kimberly Woods">
+                                <cite>Kimberly Woods — film producer</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>What I noticed the first time I worked with Parker was that I sent him notes on a first draft and he … actually did the notes. Like, exactly what I wanted. That sounds obvious but believe me, I've worked with other composers and it's rare for someone to actually get it like Parker does. He's become my go-to guy—quick turnarounds, always nails it within one or two tries.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/vincent-woo.jpg" alt="Vincent Woo">
+                                <cite>Vincent Woo — film director</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>I cannot recommend Parker highly enough. He makes the collaboration process fun and easy, patiently listening to understand what you need, and then trying out ideas and variations until you have it just right. I was extremely pleased with the final product and got lots of compliments on it! I would happily hire him again.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/jason-goodman.jpg" alt="Jason Goodman">
+                                <cite>Jason Goodman — podcast producer</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>Parker brought insight and inventiveness to every creative decision, leading to a score that enhanced and deepened the storytelling while also being surprising and exciting. Viewers said his score really made our film, and I agree. The next time I get a chance to work with him, I'll jump at it.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/jane-leibrock.jpg" alt="Jane Leibrock">
+                                <cite>Jane Leibrock — film director</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>What I found invaluable was Parker's ability to intuitively understand my (often inarticulate) vision and then add his own unique perspective, leading to the best possible result for the project. His score doesn't just complement the story, but creates new dimensions that reimagines it and adds complexity to the characters.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/hampus-svensson.jpg" alt="Hampus Svensson">
+                                <cite>Hampus Svensson — film director</cite>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="testimonial-item">
+                            <blockquote>Parker has such a knack for choosing instruments that both add unique texture and voice to the music as well as totally supporting the thematic language of the overall project. His insights into the scenes are precise and nuanced, and I absolutely love working with him.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/andrew-jordan.jpg" alt="Andrew Jordan">
+                                <cite>Andrew Jordan — film director</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>Parker was a joy to work with. Easy to collaborate with, he both took direction well and was eager to share his own creative ideas. And the final result worked perfectly, which would be impressive even without the tight time constraints we had.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/thomas-eliot.jpg" alt="Thomas Eliot">
+                                <cite>Thomas Eliot — film director</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>Parker's music brought a whole new layer of comedy to my short film. His score added so much to the story—it felt like the music truly belonged. Parker is creative, professional, and easy to work with. I highly recommend him to anyone looking for a composer who understands how to bring a film to life through music.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/alina-konon.jpg" alt="Alina Konon">
+                                <cite>Alina Konon — film director</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>With thoughtful and evocative dialogue, Parker captures the essence of your project, translating your vision into his unique musical language. His compositions and soundscapes elevate your film, achieving an aesthetic it simply cannot reach on its own.</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/lucas-snijder.jpg" alt="Lucas Snijder">
+                                <cite>Lucas Snijder — film director</cite>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <blockquote>Parker made the dialogue crystal clear and seamlessly intertwined the music with the soundscape, creating an immersive audio experience that elevated Rave Sin Love to another level. A true professional and a joy to work with, delivering everything on time and with a helpful attitude!</blockquote>
+                            <div class="testimonial-byline">
+                                <img class="testimonial-avatar" src="img/testimonials/laura-coehlo.jpg" alt="Laura Coehlo">
+                                <cite>Laura Coehlo — film director</cite>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awards -->
+        <section class="page-section bg-primary text-white mb-0">
+            <div class="container">
+                <h2 class="page-section-heading text-white text-center" style="display:block;">Awards &amp; Recognitions</h2>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <div class="award-logo-box">
+                            <img src="img/awards/apulia.png" alt="Apulia Soundtrack Awards">
+                        </div>
+                        <div class="award-title">Emerging Composer of the Year</div>
+                        <div class="award-detail">Apulia Soundtrack Awards, 2024</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-logo-box">
+                            <img src="img/awards/burbank-iff.png" alt="Burbank International Film Festival">
+                        </div>
+                        <div class="award-title">Best Film Score / Musical Composition</div>
+                        <div class="award-detail">For <em>Mintrix</em> — Burbank International Film Festival, 2025</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-logo-box">
+                            <img src="img/awards/sofia-iff.png" alt="Sofia International Film Festival">
+                        </div>
+                        <div class="award-title">Best Original Score</div>
+                        <div class="award-detail">For <em>Burden</em> — Sofia International Film Festival, 2025</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-logo-box">
+                            <img src="img/awards/isfmf.jpg" alt="International Sound and Film Music Festival">
+                        </div>
+                        <div class="award-title">Crystal Pine for Best Original Score, Short</div>
+                        <div class="award-detail">Nominated for <em>Burden</em> — International Sound and Film Music Festival, 2024</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-logo-box">
+                            <img src="img/awards/fsae.png" alt="Film Scoring Academy of Europe">
+                        </div>
+                        <div class="award-title">Andy Hill Scholarship</div>
+                        <div class="award-detail">Film Scoring Academy of Europe, 2024</div>
+                    </div>
+                    <div class="award-card">
+                        <div class="award-logo-box">
+                            <img src="img/awards/isfmf.jpg" alt="International Sound and Film Music Festival">
+                        </div>
+                        <div class="award-title">Crystal Pine for Best Trailer Music</div>
+                        <div class="award-detail">Nominated for <em>A Prayer for Two</em> — International Sound and Film Music Festival, 2024</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reel -->
         <section class="page-section bg-white">
             <div class="container">
                 <div class="text-center">
                     <h2 class="page-section-heading text-secondary d-inline-block">
-						Reel
-						<br>
-						<small style="font-size: .45em">
-						&lt;7 minutes
-						</small>
-					</h2>
-
-					<div class="mobile-only">
-						<strong>On a phone?</strong> This'll sound wayyyy better with headphones.
-					</div>
-
-					<iframe
-						width="100%"
-						height="1200"
-						scrolling="no"
-						frameborder="no"
-						src="https://play.reelcrafter.com/embed/c16ea7a5-56c6-4e5a-a2bd-393eb400ba94">
-					</iframe>
-
-					<br>
-					<br>
-
-					<p>
-						I've got plenty more. Reach out if your project has a different vibe and I'll pull some samples.
-					</p>
-
+                        Reel
+                        <br>
+                        <small style="font-size:.45em;">&lt;8 minutes total runtime</small>
+                    </h2>
+                    <div class="mobile-only mb-3">
+                        <strong>On a phone?</strong> This'll sound wayyyy better with headphones.
+                    </div>
+                    <iframe
+                        width="100%"
+                        height="1050"
+                        scrolling="no"
+                        frameborder="no"
+                        src="https://play.reelcrafter.com/embed/c9d3d720-eff4-4fef-9a89-0668f3950849">
+                    </iframe>
+                    <br><br>
+                    <p>I've got plenty more. Reach out if your project has a different vibe and I'll pull some samples.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Bio -->
         <section class="page-section bg-primary text-white mb-0">
             <div class="container">
-                <div class="text-center">
-                    <h2 class="page-section-heading d-inline-block text-white">
-						Contact
-					</h2>
-
-
-					<p class="email-addr text-center mt-0">
-						Email me!
-						<br>
-						<a href="mailto:parker@parkerphinneystudios.com">parker@parkerphinneystudios.com</a>
-					</p>
-
-					<br>
-					<br>
-
-					<p>
-					<a href="https://soundcloud.com/parker-phinney-1">Soundcloud</a>
-					<br>
-					<a href="https://twitter.com/parkerpmusic">Twitter</a>
-					<br>
-					<a href="https://www.instagram.com/parkerpstudios/">Instagram</a>
-					</p>
-
+                <h2 class="page-section-heading text-white text-center" style="display:block;">Bio</h2>
+                <div class="bio-grid">
+                    <img src="img/bio.jpg" alt="Parker Phinney">
+                    <div>
+                        <p><strong>Emerging Composer Of The Year 2024</strong> (Apulia Soundtrack Awards), Parker Phinney is an EU and USA dual-citizen composer. He loves mashing up different styles and twisting knobs to build worlds that audiences haven't seen or heard before.</p>
+                        <p>His score for the Swedish short film BURDEN was <strong>recorded with a 52-piece orchestra</strong> in Sofia, Bulgaria and <strong>nominated for best score</strong> (short) at the International Sound and Film Music Festival. His score for the trailer for the Dutch film A Prayer For Two was also nominated for best score (trailer) at the same festival.</p>
+                        <p>Parker did his <strong>MFA in scoring for the screen</strong> at Film Scoring Academy of Europe in Sofia, Bulgaria where he was awarded the <strong>prestigious Andy Hill Scholarship</strong>. His thesis was on fusing Bulgarian folk music styles with the classic Hollywood orchestral sound to build unique medieval fantasy worlds.</p>
+                        <p>In his studies at FSAE, UCLA and beyond, Parker's been lucky enough to study with <strong>Thomas Newman</strong> (The Shawshank Redemption, American Beauty), <strong>Conrad Pope</strong> (orchestrator: Harry Potter, Jurassic Park), <strong>Mikolai Stroinski</strong> (The Witcher 3, Age of Empires IV), <strong>James Venable</strong> (Samurai Jack, Foster's Home for Imaginary Friends), and many other greats.</p>
+                        <p>When not making music, Parker loves doing improv comedy, climbing, riding bicycles and playing pool.</p>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- Copyright Section-->
-        <section class="copyright py-4 text-center text-white">
-            <div class="container"><small class="pre-wrap">Copyright © Parker Phinney Studios, LLC.</small></div>
+
+        <!-- Contact -->
+        <section class="page-section bg-primary text-white mb-0">
+            <div class="container contact text-center">
+                <h2 class="page-section-heading d-inline-block text-white">Get In Touch</h2>
+                <p class="email-addr text-center mt-0">
+                    <a href="mailto:p@rker.phinney.music">p@rker.phinney.music</a>
+                    <br>
+                    <small style="font-size:0.5em; color:#9e9e9e;">(yep, that's a real email address!)</small>
+                </p>
+                <br>
+                <p>
+                    <a href="https://www.instagram.com/parker.phinney.music/" target="_blank">Instagram</a>
+                    <br>
+                    <small style="font-size:0.9rem; color:#9e9e9e; display:block; margin-top:0.25rem;">I find it's the best way to stay in touch—I post snippets of new music and behind-the-scenes videos about how I work.</small>
+                </p>
+            </div>
         </section>
+
+        <!-- Footer -->
+        <section class="copyright py-4 text-center text-white" style="background:#111;">
+            <div class="container">
+                <p class="mb-2" style="font-size:0.8rem;">
+                    <a href="https://www.instagram.com/parker.phinney.music" target="_blank" style="color:#888; margin: 0 0.75rem;">Instagram</a>
+                    <a href="https://open.spotify.com/artist/5THdclnluG8GWQLHKvbBXt" target="_blank" style="color:#888; margin: 0 0.75rem;">Spotify</a>
+                    <a href="https://parkerphinney.bandcamp.com" target="_blank" style="color:#888; margin: 0 0.75rem;">Bandcamp</a>
+                    <a href="https://www.imdb.com/name/nm15215598/" target="_blank" style="color:#888; margin: 0 0.75rem;">IMDB</a>
+                </p>
+                <small>Copyright &copy; Parker Phinney Studios, LLC.</small>
+            </div>
+        </section>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script>
+            (function () {
+                var track = document.getElementById('posterTrack');
+                document.getElementById('carouselPrev').addEventListener('click', function () {
+                    track.scrollBy({ left: -Math.round(track.clientWidth * 0.75), behavior: 'smooth' });
+                });
+                document.getElementById('carouselNext').addEventListener('click', function () {
+                    track.scrollBy({ left: Math.round(track.clientWidth * 0.75), behavior: 'smooth' });
+                });
+            })();
+        </script>
     </body>
 </html>
