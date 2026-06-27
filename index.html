@@ -42,7 +42,6 @@
                 scroll-snap-type: x mandatory;
                 scroll-behavior: smooth;
                 scrollbar-width: none;
-                gap: 3px;
             }
             .poster-track::-webkit-scrollbar { display: none; }
             .poster-item {
@@ -268,8 +267,7 @@
         </header>
 
         <!-- Film Credits -->
-        <section style="background:white; padding-top: 4rem; padding-bottom: 2rem;">
-            <h2 class="page-section-heading text-secondary text-center mb-4" style="display:block;">Film Credits</h2>
+        <section style="background:white; padding-top: 0; padding-bottom: 2rem;">
             <div style="position:relative;">
                 <div class="poster-track" id="posterTrack">
                     <figure class="poster-item">
@@ -312,8 +310,18 @@
                 <button class="carousel-btn carousel-btn--prev" id="carouselPrev" aria-label="Previous">&#8249;</button>
                 <button class="carousel-btn carousel-btn--next" id="carouselNext" aria-label="Next">&#8250;</button>
             </div>
-            <p class="text-center mt-3" style="font-size:0.85rem;">
-                <a href="https://www.imdb.com/name/nm15215598/" target="_blank" style="color:#6f6fa3;">More on IMDB &rarr;</a>
+            <p class="text-center" style="margin-top: 1.5rem;">
+                <a href="https://www.imdb.com/name/nm15215598/" target="_blank" style="
+                    display: inline-block;
+                    background: #f5c518;
+                    color: #000;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    letter-spacing: 0.04em;
+                    padding: 0.75rem 2rem;
+                    border-radius: 4px;
+                    text-decoration: none;
+                "><i class="fab fa-imdb" style="font-size:1.3rem; vertical-align:middle; margin-right:0.5rem;"></i> More Credits on IMDb</a>
             </p>
         </section>
 
